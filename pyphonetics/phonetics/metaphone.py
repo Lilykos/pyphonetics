@@ -33,14 +33,14 @@ class Metaphone(PhoneticAlgorithm):
             (r'd', r'T'),
             (r'g(?=h[^aeiou])', r''),
             (r'gn(ed)?', r'N'),
-            (r'([^g]|^)g(?=[iey])', '\1J'),
-            (r'g+', 'K'),
-            (r'ph', 'F'),
-            (r'([aeiou])h(?=\b|[^aeiou])', '\1'),
-            (r'[wy](?![aeiou])', ''),
-            (r'z', 'S'),
-            (r'v', 'F'),
-            (r'(?!^)[aeiou]+', '')
+            (r'([^g]|^)g(?=[iey])', r'\1J'),
+            (r'g+', r'K'),
+            (r'ph', r'F'),
+            (r'([aeiou])h(?=\b|[^aeiou])', r'\1'),
+            (r'[wy](?![aeiou])', r''),
+            (r'z', r'S'),
+            (r'v', r'F'),
+            (r'(?!^)[aeiou]+', r'')
         ]
 
     def phonetics(self, word):
