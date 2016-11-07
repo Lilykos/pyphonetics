@@ -13,6 +13,8 @@ class Lein(PhoneticAlgorithm):
     [Reference]: http://naldc.nal.usda.gov/download/27833/PDF
     """
     def __init__(self):
+        super().__init__()
+
         self.translations = translation(
             'DTMNLRBFPVCJKGQSXZ',
             '112233444455555555'
@@ -37,7 +39,6 @@ class Lein(PhoneticAlgorithm):
         code = squeeze(code)[0: 4]
 
         # Translations
-        backup = code
-        code = ''.join(self.translations.get(char, char) for char in backup)
+        code = ''.join(self.translations.get(char, char) for char in code)
 
         return self.pad(first + code)

@@ -14,6 +14,8 @@ class FuzzySoundex(PhoneticAlgorithm):
     [Article]: Holmes, David and M. Catherine McCabe. "Improving Precision and Recall for Soundex Retrieval."
     """
     def __init__(self):
+        super().__init__()
+
         self.translations = translation(
             'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
             '0193017-07745501769301-7-9'
@@ -48,7 +50,7 @@ class FuzzySoundex(PhoneticAlgorithm):
         self.set1 = ['CS', 'CZ', 'TS', 'TZ']
         self.set2 = ['HR', 'WR']
         self.set3 = ['KN', 'NG']
-        self.set4 = list('HWY')
+        self.set4 = 'HWY'
 
     def phonetics(self, word):
         if not isinstance(word, str):
@@ -102,10 +104,8 @@ class FuzzySoundex(PhoneticAlgorithm):
         code = squeeze(code)
 
         # Dealing with initials
-        if code[0] in self.set4:
-            code = first_letter
-        else:
-            code = first_letter + code[1:]
+        code = first_letter if code[0] in self.set4 \
+            else first_letter + code[1:]
 
         # Dropping vowels
         code = code.replace('0', '')

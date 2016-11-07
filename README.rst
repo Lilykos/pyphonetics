@@ -39,7 +39,16 @@ The same API applies to every algorithm, e.g:
     >>> metaphone.phonetics('discrimination')
     'TSKRMNXN'
 
+You can also use the `distance(word1, word2, metric='levenshtein')` method to find the distance between 2 phonetic representations.
+
+    >>> from pyphonetics import RefinedSoundex
+    >>> rs = RefinedSoundex()
+    >>> rs.distance('Rupert', 'Robert')
+    0
+    >>> rs.distance('assign', 'assist', metric='hamming')
+    2
+
 Credits
 =======
 
-The module was largely based on the implementation of phonetic algorithms found in the [Talisman.js](https://github.com/Yomguithereal/talisman) Node NLP library.
+The module was largely based on the implementation of phonetic algorithms found in the Talisman.js (https://github.com/Yomguithereal/talisman) Node NLP library.

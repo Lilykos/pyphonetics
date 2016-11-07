@@ -13,6 +13,8 @@ class Metaphone(PhoneticAlgorithm):
     [Author]: Lawrence Philips, 1990
     """
     def __init__(self):
+        super().__init__()
+
         self.rules = [
             (r'[^a-z]', r''),
             (r'([bcdfhjklmnpqrstvwxyz])\1+', r'\1'),

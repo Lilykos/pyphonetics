@@ -15,6 +15,9 @@ class MatchingRatingApproach(PhoneticAlgorithm):
         Accessing Individual Records from Personal Data Files Using Nonunique Identifiers.
         US National Institute of Standards and Technology. p. 17. NIST SP - 500-2.
     """
+    def __init__(self):
+        super().__init__()
+
     def phonetics(self, word):
         if not isinstance(word, str):
             raise UnicodeException('Expected a unicode string!')

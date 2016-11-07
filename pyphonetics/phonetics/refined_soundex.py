@@ -14,6 +14,8 @@ class RefinedSoundex(PhoneticAlgorithm):
     [Authors]: Robert C. Russel, Margaret King Odell
     """
     def __init__(self):
+        super().__init__()
+
         self.translations = translation(
             'AEIOUYWHBPFVCKSGJQXZDTLMNR',
             '000000DD112233344555667889'
@@ -30,5 +32,4 @@ class RefinedSoundex(PhoneticAlgorithm):
         tail = ''.join(self.translations[char] for char in word
                        if self.translations[char] != 'D')
 
-        code = squeeze(tail)
-        return first_letter + code
+        return first_letter + squeeze(tail)

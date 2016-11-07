@@ -8,6 +8,11 @@ Pyphonetics is a Python 3 library for phonetic algorithms. Right now, the follow
  * Fuzzy Soundex
  * Lein
  * Matching Rating Approach
+ 
+In addition, the following distance metrics:
+
+ * Hamming
+ * Levenshtein
 
 More will be added in the future.
 
@@ -36,6 +41,17 @@ The same API applies to every algorithm, e.g:
 >>> metaphone = Metaphone()
 >>> metaphone.phonetics('discrimination')
 'TSKRMNXN'
+```
+
+You can also use the `distance(word1, word2, metric='levenshtein')` method to find the distance between 2 phonetic representations.
+
+```python
+>>> from pyphonetics import RefinedSoundex
+>>> rs = RefinedSoundex()
+>>> rs.distance('Rupert', 'Robert')
+0
+>>> rs.distance('assign', 'assist', metric='hamming')
+2
 ```
 
 ## Credits

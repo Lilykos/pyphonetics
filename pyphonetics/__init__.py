@@ -4,8 +4,6 @@ from .phonetics import (Soundex,
                         MatchingRatingApproach,
                         FuzzySoundex,
                         Lein,
-                        RefinedSoundex,
-                        # DaitchMokotoff
-                        )
+                        RefinedSoundex)
 
-__version__ = '0.3.1'
+__version__ = '0.4.1'

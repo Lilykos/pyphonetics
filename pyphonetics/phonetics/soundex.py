@@ -14,6 +14,8 @@ class Soundex(PhoneticAlgorithm):
     [Authors]: Robert C. Russel, Margaret King Odell
     """
     def __init__(self):
+        super().__init__()
+
         self.translations = translation(
             'AEIOUYWHBPFVCSKGJQXZDTLMNR',
             '000000DD111122222222334556'

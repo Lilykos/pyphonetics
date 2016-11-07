@@ -4,3 +4,7 @@ class UnicodeException(Exception):
 
 class WrongLengthException(Exception):
     pass
+
+
+class DistanceMetricError(Exception):
+    pass
