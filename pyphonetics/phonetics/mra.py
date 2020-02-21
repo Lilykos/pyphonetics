@@ -1,8 +1,7 @@
 import re
 from unidecode import unidecode
 
-from ..utils import squeeze
-from ..exceptions import UnicodeException
+from ..utils import squeeze, check_empty, check_str
 from .phonetic_algorithm import PhoneticAlgorithm
 
 
@@ -19,8 +18,8 @@ class MatchingRatingApproach(PhoneticAlgorithm):
         super().__init__()
 
     def phonetics(self, word):
-        if not isinstance(word, str):
-            raise UnicodeException('Expected a unicode string!')
+        check_str(word)
+        check_empty(word)
 
         codex = unidecode(word).upper()
         codex = re.sub(r'[^A-Z]', r'', codex)

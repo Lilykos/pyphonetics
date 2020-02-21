@@ -1,8 +1,7 @@
 import re
 from unidecode import unidecode
 
-from ..utils import translation, squeeze
-from ..exceptions import UnicodeException
+from ..utils import translation, squeeze, check_str, check_empty
 from .phonetic_algorithm import PhoneticAlgorithm
 
 
@@ -22,8 +21,8 @@ class RefinedSoundex(PhoneticAlgorithm):
         )
 
     def phonetics(self, word):
-        if not isinstance(word, str):
-            raise UnicodeException('Expected a unicode string!')
+        check_str(word)
+        check_empty(word)
 
         word = unidecode(word).upper()
         word = re.sub(r'[^A-Z]', r'', word)

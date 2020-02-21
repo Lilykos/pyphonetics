@@ -1,8 +1,7 @@
 import re
 from unidecode import unidecode
 
-from ..utils import squeeze, translation
-from ..exceptions import UnicodeException
+from ..utils import squeeze, translation, check_empty, check_str
 from .phonetic_algorithm import PhoneticAlgorithm
 
 
@@ -53,11 +52,8 @@ class FuzzySoundex(PhoneticAlgorithm):
         self.set4 = 'HWY'
 
     def phonetics(self, word):
-        if not isinstance(word, str):
-            raise UnicodeException('Expected a unicode string!')
-
-        if not word:
-            return ''
+        check_str(word)
+        check_empty(word)
 
         word = unidecode(word).upper()
 

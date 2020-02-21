@@ -1,0 +1,19 @@
+[build-system]
+requires = [
+    "flit_core >=2,<3",
+    "unidecode",
+    "pytest"
+]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "pyphonetics"
+author = "Lilykos"
+author-email = "ilias.koutsakis@gmail.com"
+home-page = "https://github.com/Lilykos/pyphonetics"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]

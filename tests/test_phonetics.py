@@ -106,7 +106,6 @@ def test_mra():
 
 def test_fuzzy_soundex():
     tests = [
-        ('', ''),
         ('Kristen', 'K6935'),
         ('Krissy', 'K69'),
         ('Christen', 'K6935'),

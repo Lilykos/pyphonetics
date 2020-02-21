@@ -1,6 +1,7 @@
 from itertools import groupby
 
-from .exceptions import WrongLengthException
+from .exceptions import WrongLengthException, UnicodeException, \
+    EmptyStringError
 
 
 def translation(first, second):
@@ -13,3 +14,15 @@ def translation(first, second):
 def squeeze(word):
     """Squeeze the given sequence by dropping consecutive duplicates."""
     return ''.join(x[0] for x in groupby(word))
+
+
+def check_str(word):
+    """Throw exception at non-string input."""
+    if not isinstance(word, str):
+        raise UnicodeException('Expected a unicode string!')
+
+
+def check_empty(word):
+    """Throw exception at empty string input."""
+    if not len(word):
+        raise EmptyStringError('The given string is empty.')

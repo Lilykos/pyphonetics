@@ -1,7 +1,7 @@
 import re
 from unidecode import unidecode
 
-from ..exceptions import UnicodeException
+from ..utils import check_str, check_empty
 from .phonetic_algorithm import PhoneticAlgorithm
 
 
@@ -46,8 +46,8 @@ class Metaphone(PhoneticAlgorithm):
         ]
 
     def phonetics(self, word):
-        if not isinstance(word, str):
-            raise UnicodeException('Expected a unicode string!')
+        check_str(word)
+        check_empty(word)
 
         code = unidecode(word).lower()
         for item in self.rules:

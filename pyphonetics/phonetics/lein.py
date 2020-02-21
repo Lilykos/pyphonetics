@@ -1,8 +1,7 @@
 import re
 from unidecode import unidecode
 
-from ..utils import squeeze, translation
-from ..exceptions import UnicodeException
+from ..utils import squeeze, translation, check_str, check_empty
 from .phonetic_algorithm import PhoneticAlgorithm
 
 
@@ -23,8 +22,8 @@ class Lein(PhoneticAlgorithm):
         self.pad = lambda code: '{}0000'.format(code)[:4]
 
     def phonetics(self, word):
-        if not isinstance(word, str):
-            raise UnicodeException('Expected a unicode string!')
+        check_str(word)
+        check_empty(word)
 
         word = unidecode(word).upper()
         word = re.sub(r'[^A-Z]\s', r'', word)

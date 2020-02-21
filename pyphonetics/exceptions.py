@@ -8,3 +8,7 @@ class WrongLengthException(Exception):
 
 class DistanceMetricError(Exception):
     pass
+
+
+class EmptyStringError(Exception):
+    pass

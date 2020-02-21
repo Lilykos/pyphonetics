@@ -1,8 +1,7 @@
 import re
 from unidecode import unidecode
 
-from ..utils import translation, squeeze
-from ..exceptions import UnicodeException
+from ..utils import translation, squeeze, check_str, check_empty
 from .phonetic_algorithm import PhoneticAlgorithm
 
 
@@ -23,8 +22,8 @@ class Soundex(PhoneticAlgorithm):
         self.pad = lambda code: '{}0000'.format(code)[:4]
 
     def phonetics(self, word):
-        if not isinstance(word, str):
-            raise UnicodeException('Expected a unicode string!')
+        check_str(word)
+        check_empty(word)
 
         word = unidecode(word).upper()
         word = re.sub(r'[^A-Z]', r'', word)
@@ -34,8 +33,9 @@ class Soundex(PhoneticAlgorithm):
                        if self.translations[char] != 'D')
 
         # Dropping first code's letter if duplicate
-        if tail[0] == self.translations[first_letter]:
-            tail = tail[1:]
+        if len(tail):
+            if tail[0] == self.translations[first_letter]:
+                tail = tail[1:]
 
         code = squeeze(tail).replace('0', '')
         return self.pad(first_letter + code)
