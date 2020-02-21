@@ -1,4 +1,5 @@
 [build-system]
+requires-python="3"
 requires = [
     "flit_core >=2,<3",
     "unidecode",
@@ -11,6 +12,7 @@ module = "pyphonetics"
 author = "Lilykos"
 author-email = "ilias.koutsakis@gmail.com"
 home-page = "https://github.com/Lilykos/pyphonetics"
+description-file="README.rst"
 classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
