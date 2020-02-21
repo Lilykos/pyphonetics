@@ -2,7 +2,6 @@
 requires-python="3"
 requires = [
     "flit_core >=2,<3",
-    "unidecode",
     "pytest"
 ]
 build-backend = "flit_core.buildapi"
@@ -18,4 +17,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Libraries :: Python Modules"
+]
+requires = [
+    "unidecode"
 ]
